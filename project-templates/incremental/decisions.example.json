@@ -1,0 +1,17 @@
+{
+  "decisions": [
+    {
+      "example": true,
+      "id": "REPLACE",
+      "scope": "design",
+      "accepted": false,
+      "actor": "",
+      "source": "",
+      "reason": "",
+      "artifact_digest": "",
+      "unresolved_material_questions": [
+        "REPLACE"
+      ]
+    }
+  ]
+}

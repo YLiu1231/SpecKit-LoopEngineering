@@ -1,0 +1,46 @@
+{
+  "example": true,
+  "categories": {
+    "api": {
+      "status": "unreviewed",
+      "reason": "",
+      "source_paths": []
+    },
+    "events": {
+      "status": "unreviewed",
+      "reason": "",
+      "source_paths": []
+    },
+    "shared_data": {
+      "status": "unreviewed",
+      "reason": "",
+      "source_paths": []
+    },
+    "sdk": {
+      "status": "unreviewed",
+      "reason": "",
+      "source_paths": []
+    },
+    "configuration": {
+      "status": "unreviewed",
+      "reason": "",
+      "source_paths": []
+    },
+    "business_semantics": {
+      "status": "unreviewed",
+      "reason": "",
+      "source_paths": []
+    },
+    "errors": {
+      "status": "unreviewed",
+      "reason": "",
+      "source_paths": []
+    },
+    "timing": {
+      "status": "unreviewed",
+      "reason": "",
+      "source_paths": []
+    }
+  },
+  "unknowns": []
+}

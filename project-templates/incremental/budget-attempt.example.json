@@ -1,0 +1,17 @@
+{
+  "example": true,
+  "problem_id": "EXAMPLE-PROBLEM-001",
+  "attempt_id": "EXAMPLE-ATTEMPT-001",
+  "loop": "implementation",
+  "hypothesis": "REPLACE with the concrete hypothesis tested by this actual remediation",
+  "evidence_refs": [
+    {
+      "path": "REPLACE_WITH_ACTUAL_REASSESSMENT_EVIDENCE_PATH",
+      "digest": "sha256:REPLACE_WITH_ACTUAL_FILE_DIGEST"
+    }
+  ],
+  "progress": false,
+  "progress_reason": "REPLACE with the evidence-based outcome; textual edits alone are not progress",
+  "resolved": false,
+  "elapsed_seconds": 0
+}

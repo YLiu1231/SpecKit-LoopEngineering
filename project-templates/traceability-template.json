@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "example": true,
+  "requirements": [
+    "FR-001"
+  ],
+  "stories": [
+    {
+      "id": "US1",
+      "requirements": [
+        "FR-001"
+      ],
+      "tasks": [
+        "T010"
+      ],
+      "cases": [
+        "CASE-001"
+      ]
+    }
+  ]
+}

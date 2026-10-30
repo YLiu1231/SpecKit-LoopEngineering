@@ -3,8 +3,8 @@
 ## Release
 
 - Name: `claude-speckit-loop-bundle`
-- Version: `1.1.0`
-- Build date: `2026-07-21`
+- Version: `2.0.0`
+- Build date: `2026-10-29`
 - Default installer network behavior: no download
 - Runtime network boundary: OS-enforced offline on macOS/Linux/WSL2; deny/Hook guard on native Windows
 - Secrets included: none
@@ -15,7 +15,9 @@
 
 - 10 Spec Kit skills
 - 5 Loop Engineering skills, including `loop-init`
-- 5 Spec Kit project templates
+- 5 Spec Kit project templates plus incremental JSON/Markdown examples
+- Dependency-free incremental Python package under `runtime/loop_runtime/`
+- Local Git integration tests and incremental operation documentation
 - 5 Spec Kit offline shell capsules
 - Cross-platform Python launcher capsule
 - Global security Hook capsule
@@ -29,13 +31,13 @@
 Run from the bundle root:
 
 ```sh
-find . -type f ! -name '*.md' ! -name 'install.sh' ! -name 'install.ps1' -print
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v
 sh -n install.sh
-./install.sh doctor
+git diff --check
 ```
 
-The first command must print nothing. Review `runtime/*.md` before distribution: these are
-plain-text code capsules restored to their native extensions only during installation.
+Review `runtime/*.md` capsules and `runtime/loop_runtime/*.py` before distribution.
+The package now contains native Python/JSON sources; it is no longer Markdown-only.
 
 On native Windows, run `install.ps1 doctor` and use a PowerShell parser or PSScriptAnalyzer
 approved by your organization before distribution.

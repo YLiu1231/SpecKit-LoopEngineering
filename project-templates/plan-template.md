@@ -111,3 +111,14 @@ directories captured above]
 |-----------|------------|-------------------------------------|
 | [e.g., 4th project] | [current need] | [why 3 projects insufficient] |
 | [e.g., Repository pattern] | [specific problem] | [why direct DB access insufficient] |
+
+## Incremental architecture and verification
+
+Reference the refreshed project baseline and `context-lock.json`. Describe preserved behavior,
+affected 0-layer modules and every relevant external behavior boundary. Produce `us-design.md`,
+`boundary-review.json`, `compatibility.md`, `compatibility.json` and `traceability.json`.
+Every US maps to actual tasks and assertion-bearing cases. The complete project catalog, including
+legacy cases, runs for this increment. Define actual runner outputs, environments and approved substitutes.
+Record the target monthly/patch dependency combination, four-version behavior, finite support window,
+data/message/configuration recovery and developer-confirmed exceptions. Plan full-test resource costs
+from the measured baseline; do not impose fixed per-phase 3/3/5/3 limits.

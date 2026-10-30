@@ -1,0 +1,13 @@
+{
+  "findings": [
+    {
+      "id": "F-001",
+      "severity": "medium",
+      "description": "REPLACE_WITH_ACTUAL_FINDING",
+      "case_ids": [],
+      "disposition": "open",
+      "owner": "REPLACE",
+      "evidence_refs": []
+    }
+  ]
+}

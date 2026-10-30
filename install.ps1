@@ -142,6 +142,8 @@ function Assert-Bundle {
         "runtime\global_installer.py.md",
         "runtime\bootstrap_project.py.md",
         "runtime\loopctl.py.md",
+        "runtime\loop_runtime\cli.py",
+        "docs\INCREMENTAL-WORKFLOW.md",
         "runtime\run-python.sh.md",
         "runtime\security_guard.py.md",
         "runtime\policy.json.md",

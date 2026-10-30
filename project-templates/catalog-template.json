@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "example": true,
+  "environment": "REPLACE-AUTHORIZED-ENVIRONMENT",
+  "data_preconditions": {
+    "description": "REPLACE-REAL-DATA-PRECONDITIONS"
+  },
+  "runners": {
+    "functional": {
+      "command": [
+        "REPLACE-PROJECT-TEST-RUNNER",
+        "--result-file",
+        "{result_file}"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 300,
+      "result_format": "case-json"
+    }
+  },
+  "cases": [
+    {
+      "id": "CASE-001",
+      "us_id": "US1",
+      "runner_id": "functional",
+      "assertion": "REPLACE-OBSERVABLE-EXPECTED-BEHAVIOR",
+      "mode": "command"
+    }
+  ]
+}

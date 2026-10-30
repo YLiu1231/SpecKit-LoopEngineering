@@ -129,3 +129,12 @@
 - [Assumption about scope boundaries, e.g., "Mobile support is out of scope for v1"]
 - [Assumption about data/environment, e.g., "Existing authentication system will be reused"]
 - [Dependency on existing system/service, e.g., "Requires access to the existing user profile API"]
+
+## Incremental context and scope
+
+- Current production behavior and authority: [version/environment/source]
+- Working baseline and existing constraints: [sources; separate facts/inference/unknowns]
+- Target dependency set and explicitly selected development designs: [references]
+- Added, modified and preserved behavior: [FR/US mapping]
+- Necessary compatibility adaptation and separately approved scope additions: [decisions]
+- Remaining unknowns and exclusions: [disposition; no invented historical intent]

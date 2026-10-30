@@ -19,14 +19,14 @@ The change author MUST not silently waive evaluator findings.
 ### III. Bounded Evaluator–Optimizer Loops
 
 Requirements, design, implementation, and convergence MUST each define a generator,
-independent evaluators, an iteration budget, a measurable pass condition, stagnation
+independent evaluators, a problem-scoped remediation budget, an explicit pass condition, stagnation
 detection, and an escalation path. A loop MUST stop when it passes, exhausts its budget,
 stagnates, invalidates an approved baseline, or crosses a protected capability boundary.
 
 ### IV. Least Privilege and Offline-by-Default Execution
 
-Automated execution MUST be confined to the active project and session temporary
-directory. Reading credentials, writing outside the project, external network access,
+Automated writes MUST be confined to the active project and session temporary
+directory. Registered local peer repositories may be read through the Loop runtime within existing permissions; they remain read-only inputs. Reading credentials, writing outside the project, external network access,
 Unix sockets, desktop application control, privilege escalation, remote push/merge, and
 deployment are denied unless an enterprise-managed policy explicitly grants a narrower
 capability. An agent MUST NOT weaken or edit its own policy, hooks, or sandbox settings.
@@ -52,8 +52,9 @@ Accepted lessons SHOULD become deterministic checks before becoming longer promp
 - Requirements gate: no material ambiguity; FR/SC and acceptance scenarios are testable.
 - Design gate: no CRITICAL/HIGH cross-artifact finding; tasks are traceable and
   independently verifiable; migrations and rollback are explicit.
-- Implementation gate: relevant tests and checks pass; the diff stays within task scope.
-- Convergence gate: zero actionable specified-scope gaps and current evidence is green.
+- Implementation gate: the full project catalog is completely executed on the final behavior inputs. Any remaining failure needs a scoped developer decision; skipped/missing cases cannot be waived into completion.
+- Convergence gate: current evidence, requirements/design consistency, refreshed knowledge and a versioned outgoing handoff. Test verdict, accepted risk and gate decision remain separate.
+- Default remediation: 3 attempts per stable problem, escalation after 2 consecutive attempts without substantive progress; history persists across loops and a finite feature resource cap also applies.
 - External-action gate: commit, publish, push, merge, release, deployment, production data
   change, or new trust relationship always requires explicit authority.
 
@@ -64,4 +65,4 @@ written proposal with evidence, security review, rollback plan, and version incr
 Policy files and enforcing hooks are human-owned and MUST remain immutable to the running
 agent. Exceptions expire and MUST identify owner, scope, reason, and end date.
 
-**Version**: 1.0.0 | **Ratified**: 2026-07-20 | **Last Amended**: 2026-07-20
+**Version**: 2.0.0 | **Ratified**: 2026-07-20 | **Last Amended**: 2026-10-29

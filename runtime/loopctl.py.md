@@ -392,8 +392,14 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
+    arguments = list(sys.argv[1:] if argv is None else argv)
+    # Preserve the reviewable evolution proposal command; all engineering gates
+    # now require content-bound decisions and actual execution evidence.
+    if not arguments or arguments[0] != "propose-evolution":
+        from loop_runtime.cli import main as incremental_main
+        return incremental_main(arguments, default_root=str(PROJECT_ROOT))
     try:
-        args = build_parser().parse_args(argv)
+        args = build_parser().parse_args(arguments)
         return int(args.func(args))
     except (KeyError, TypeError, ValueError) as exc:
         print(json.dumps({"error": str(exc)}, ensure_ascii=False), file=sys.stderr)

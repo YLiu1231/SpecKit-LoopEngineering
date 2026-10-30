@@ -1,7 +1,7 @@
 # Claude Code：Spec Kit + Four-Loop 便携包
 
-这个目录可以直接复制给同事。包内只包含 Markdown 文本、一个 POSIX 安装器
-`install.sh` 和一个 Windows 安装器 `install.ps1`，不含任何 API Key、Token、模型
+这个目录可以直接复制给同事。包内包含 Markdown Skill、无第三方依赖的 Python 运行时、测试，以及 POSIX 安装器
+`install.sh` 和 Windows 安装器 `install.ps1`，不含任何 API Key、Token、模型
 地址、用户名或开发者电脑的绝对路径。
 
 安装后，Claude Code 获得：
@@ -13,6 +13,19 @@
 - 跨平台安全基线（macOS/Linux/WSL2 严格沙箱，原生 Windows 防护模式）；
 - 中文高风险操作 Hook；
 - 每项目的 policy、loopctl、workflow、constitution 和 Spec Kit 模板。
+
+## 存量项目增量开发（2.0）
+
+保留 init + requirements/design/implementation/convergence，增加可运行的本地增量机制：
+
+- 初始化状态盘点与真实基线采集；持续刷新当前摘要、边界索引和特性历史。
+- 固定版本的上下文、显式外部设计采纳、月度/补丁发布权威记录。
+- US → 任务 → 断言案例追溯，每个增量完整执行项目全功能目录。
+- 新旧版本四种组合与恢复限制；执行完整性、失败事实、风险接受和准出分别记录。
+- 生产方版本化 Markdown 交接、消费方回执；契约漂移、并行冲突、撤回和回滚重判。
+- 同问题 3 次整改、连续 2 次无进展升级，以及按项目基线配置的总资源预算。
+
+两层关系见 [Skill 与运行时代码](docs/SKILL-RUNTIME-MAP.md)。详见 [运行手册](docs/INCREMENTAL-WORKFLOW.md)、[开发验证](docs/DEVELOPMENT.md)、[本次验证记录](docs/VALIDATION.md)。本地仓库同步由外部工具负责；框架按关键节点扫描，不自动 fetch/pull，不跨仓写入。首次运行 `/loop-init` 配置项目与真实案例目录；安装完成本身不代表初始化评审或测试通过。
 
 ## 环境要求
 
@@ -157,10 +170,11 @@ claude
 /loop-convergence
 ```
 
-每个 Loop 都有评估器、通过条件、最大轮次、停滞检测和升级路径。人只审批：
+每个 Loop 都有准出标准、问题整改预算、停滞检测和升级路径。默认同问题最多自动整改 3 次，连续 2 次无实质进展时升级；跨 Loop 保留历史，并受基于自测成本配置的增量总预算约束。开发确认：
 
 - 产品意图与范围；
 - 架构、依赖、数据迁移和安全边界；
+- 外部设计采纳、残余风险、回滚例外及额外预算；
 - commit、发布、push、merge、部署等外部副作用。
 
 在 macOS、Linux 和 WSL2 中，普通项目内读取、编辑、测试和静态检查在沙箱内自动

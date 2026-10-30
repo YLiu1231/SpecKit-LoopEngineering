@@ -1,0 +1,50 @@
+{
+  "example": true,
+  "no_external_change_reason": "",
+  "interactions": [
+    {
+      "peer_project": "REPLACE",
+      "contract_ids": [
+        "REPLACE"
+      ],
+      "support_window": "REPLACE with exact versions and support period",
+      "local_versions": {
+        "old": "REPLACE",
+        "new": "REPLACE"
+      },
+      "peer_versions": {
+        "old": "REPLACE",
+        "new": "REPLACE"
+      },
+      "combinations": {
+        "old_old": {
+          "expected_behavior": "",
+          "case_ids": [],
+          "new_capability_degradation": ""
+        },
+        "new_old": {
+          "expected_behavior": "",
+          "case_ids": [],
+          "new_capability_degradation": ""
+        },
+        "old_new": {
+          "expected_behavior": "",
+          "case_ids": [],
+          "new_capability_degradation": ""
+        },
+        "new_new": {
+          "expected_behavior": "",
+          "case_ids": [],
+          "new_capability_degradation": ""
+        }
+      },
+      "recovery": {
+        "stateful_effects": "",
+        "independent_rollback_supported": false,
+        "alternative": "",
+        "limitations": "",
+        "case_ids": []
+      }
+    }
+  ]
+}

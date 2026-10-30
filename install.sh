@@ -61,6 +61,8 @@ check_bundle() {
     "$SCRIPT_DIR/runtime/run-python.sh.md" \
     "$SCRIPT_DIR/runtime/security_guard.py.md" \
     "$SCRIPT_DIR/runtime/policy.json.md" \
+    "$SCRIPT_DIR/runtime/loop_runtime/cli.py" \
+    "$SCRIPT_DIR/docs/INCREMENTAL-WORKFLOW.md" \
     "$SCRIPT_DIR/runtime/workflow.yml.md"; do
     if [ ! -f "$required" ]; then
       printf '%s\n' "ERROR: Bundle is incomplete: $required" >&2
@@ -181,6 +183,7 @@ doctor() {
     "$CLAUDE_HOME_DIR/skills/loop-convergence/SKILL.md" \
     "$CLAUDE_HOME_DIR/skills/speckit-specify/SKILL.md" \
     "$CLAUDE_HOME_DIR/loop-engineering/bootstrap_project.py" \
+    "$CLAUDE_HOME_DIR/loop-engineering/loop_runtime/cli.py" \
     "$CLAUDE_HOME_DIR/loop-engineering/run-python.sh"; do
     if [ -f "$path" ]; then
       printf '%s\n' "OK $path"

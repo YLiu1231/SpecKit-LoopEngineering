@@ -10,6 +10,12 @@ user-invocable: true
 disable-model-invocation: false
 ---
 
+For incremental Loop projects, also follow `.specify/docs/INCREMENTAL-WORKFLOW.md`. Full project selftest execution is mandatory per increment. Checklist completion or a prose CONVERGED/PASS does not replace `gate evaluate`; retain execution completeness, evidence verdict and risk decisions separately.
+
+
+## Incremental verification contract
+
+When operating this bundle, follow `loop-implementation` and `.specify/docs/INCREMENTAL-WORKFLOW.md` for execution and gates. Tests are required for every story; every increment runs the whole registered functional catalog. Collect real case-level results with `selftests run/check --feature-dir`, not model-authored command/PASS JSON. Keep incomplete execution, failed evidence, accepted risk and phase completion separate. Final behavior-input changes require another full run. A task checkbox or checklist PASS cannot grant an implementation gate. Preserve issue identity across requirements/design/implementation/convergence and obey problem plus resource budgets.
 
 ## User Input
 
@@ -158,7 +164,7 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 7. Implementation execution rules:
    - **Setup first**: Initialize project structure, dependencies, configuration
-   - **Tests before code**: If you need to write tests for contracts, entities, and integration scenarios
+   - **Tests before code**: Write the required cases for contracts, entities, and integration scenarios
    - **Core development**: Implement models, services, CLI commands, endpoints
    - **Integration work**: Database connections, middleware, logging, external services
    - **Polish and validation**: Unit tests, performance optimization, documentation

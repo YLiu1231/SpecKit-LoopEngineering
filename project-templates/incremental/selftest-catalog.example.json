@@ -1,0 +1,28 @@
+{
+  "example": true,
+  "environment": "REPLACE_WITH_ACTUAL_ENVIRONMENT",
+  "data_preconditions": {},
+  "behavior_paths": [
+    "src",
+    "tests"
+  ],
+  "behavior_paths_review": "REPLACE_WITH_REVIEW_SOURCE_AND_EXCLUSIONS",
+  "runners": {
+    "suite": {
+      "command": [
+        "python3",
+        "tests/report_adapter.py"
+      ],
+      "result_format": "case-json",
+      "timeout_seconds": 300
+    }
+  },
+  "cases": [
+    {
+      "id": "ST-001",
+      "us_id": "US-001",
+      "runner_id": "suite",
+      "assertion": "REPLACE_WITH_REAL_EXPECTATION"
+    }
+  ]
+}

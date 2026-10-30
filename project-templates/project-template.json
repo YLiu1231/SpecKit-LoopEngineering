@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "protocol_version": "0.1-draft",
+  "project_id": "REPLACE-PROJECT-ID",
+  "name": "REPLACE-PROJECT-NAME",
+  "main_branch": "main",
+  "release_records": [],
+  "selftest_entries": [],
+  "resource_budget": {
+    "max_seconds": null
+  }
+}

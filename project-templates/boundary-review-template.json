@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "example": true,
+  "categories": {
+    "api": {
+      "status": "pending",
+      "reason": "",
+      "source_paths": []
+    },
+    "events": {
+      "status": "pending",
+      "reason": "",
+      "source_paths": []
+    },
+    "shared_data": {
+      "status": "pending",
+      "reason": "",
+      "source_paths": []
+    },
+    "sdk": {
+      "status": "pending",
+      "reason": "",
+      "source_paths": []
+    },
+    "configuration": {
+      "status": "pending",
+      "reason": "",
+      "source_paths": []
+    },
+    "business_semantics": {
+      "status": "pending",
+      "reason": "",
+      "source_paths": []
+    },
+    "errors": {
+      "status": "pending",
+      "reason": "",
+      "source_paths": []
+    },
+    "timing": {
+      "status": "pending",
+      "reason": "",
+      "source_paths": []
+    }
+  },
+  "unknowns": []
+}

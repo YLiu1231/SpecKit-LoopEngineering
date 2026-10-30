@@ -9,6 +9,12 @@ user-invocable: true
 disable-model-invocation: false
 ---
 
+For incremental Loop projects, also follow `.specify/docs/INCREMENTAL-WORKFLOW.md`. Full project selftest execution is mandatory per increment. Checklist completion or a prose CONVERGED/PASS does not replace `gate evaluate`; retain execution completeness, evidence verdict and risk decisions separately.
+
+
+## Incremental convergence contract
+
+Use the current `loop-convergence` contract and runtime gate. A written `CONVERGED` or `PASS` is a report label only. Gaps must trace to approved scope; route intent changes to requirements, design faults to design, code faults to implementation. Keep the same problem and budget history. Whole-catalog evidence must match final behavior inputs. Refresh current project knowledge and boundaries while preserving feature history; produce versioned handoffs and distinguish project completion, accepted deferral and joint compatibility readiness.
 
 ## User Input
 

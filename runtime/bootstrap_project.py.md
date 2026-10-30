@@ -73,6 +73,13 @@ def main() -> int:
     args = parser.parse_args()
 
     project = Path(args.project_root).expanduser().resolve()
+    if not project.is_dir():
+        print(json.dumps({"error": "Project directory does not exist", "project": str(project)}), file=sys.stderr)
+        return 2
+    package_root = TEMPLATE_ROOT / "loop_runtime"
+    if not (package_root / "__init__.py").is_file():
+        print(json.dumps({"error": "Global incremental runtime package missing"}), file=sys.stderr)
+        return 2
     if not (project / ".specify").is_dir():
         if args.offline_init:
             (project / ".specify").mkdir(parents=True, exist_ok=True)
@@ -151,6 +158,23 @@ def main() -> int:
 
     changes = []
     for source_name, destination_name, preserve in mappings:
+        if source_name == "policy.json" and (project / destination_name).exists():
+            existing_policy = json.loads((project / destination_name).read_text(encoding="utf-8"))
+            if existing_policy.get("policy_version", "").startswith("2."):
+                changes.append({"path": str(project / destination_name), "action": "preserved"})
+                continue
+            defaults = json.loads((TEMPLATE_ROOT / source_name).read_text(encoding="utf-8"))
+            backup = backup_file(project / destination_name, project, backup_root)
+            migrated = dict(existing_policy)
+            migrated["policy_version"] = defaults["policy_version"]
+            migrated["legacy_loop_limits"] = existing_policy.get("loops", {})
+            migrated["loops"] = defaults["loops"]
+            for key in ("remediation", "resource_budget"):
+                migrated.setdefault(key, defaults[key])
+            migrated["global_stop_conditions"] = defaults["global_stop_conditions"]
+            (project / destination_name).write_text(json.dumps(migrated, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+            changes.append({"path": str(project / destination_name), "action": "migrated", "backup": str(backup)})
+            continue
         changes.append(
             install_file(
                 TEMPLATE_ROOT / source_name,
@@ -160,6 +184,21 @@ def main() -> int:
                 preserve_established_constitution=preserve,
             )
         )
+
+    mapped_templates = {source for source, _, _ in mappings if source.startswith("templates/")}
+    extra_files = []
+    for source in sorted(package_root.rglob("*.py")):
+        extra_files.append((source, project / ".specify/scripts/loop_runtime" / source.relative_to(package_root)))
+    for source in sorted((TEMPLATE_ROOT / "templates").rglob("*")):
+        if source.is_file() and source.suffix in {".md", ".json", ".yaml"}:
+            source_name = source.relative_to(TEMPLATE_ROOT).as_posix()
+            if source_name not in mapped_templates:
+                extra_files.append((source, project / ".specify/templates" / source.relative_to(TEMPLATE_ROOT / "templates")))
+    for source in sorted((TEMPLATE_ROOT / "docs").rglob("*")):
+        if source.is_file() and source.suffix in {".md", ".json", ".txt"}:
+            extra_files.append((source, project / ".specify/docs" / source.relative_to(TEMPLATE_ROOT / "docs")))
+    for source, destination in extra_files:
+        changes.append(install_file(source, destination, project, backup_root))
 
     init_options = project / ".specify/init-options.json"
     if not init_options.exists():

@@ -1,0 +1,20 @@
+{
+  "example": true,
+  "requirements": [
+    "FR-001"
+  ],
+  "stories": [
+    {
+      "id": "US-001",
+      "requirements": [
+        "FR-001"
+      ],
+      "tasks": [
+        "T001"
+      ],
+      "cases": [
+        "ST-001"
+      ]
+    }
+  ]
+}
